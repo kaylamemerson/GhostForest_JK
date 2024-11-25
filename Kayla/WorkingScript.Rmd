@@ -44,6 +44,8 @@ glimpse(band1_df)
 
 plot(raster_data1)
 
+
+
 ```
 
 

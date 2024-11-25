@@ -1,0 +1,53 @@
+---
+title: "WorkingScript"
+author: "Kayla Emerson"
+date: "2024-11-25"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+#load and install necessary packages
+library(tidyverse)
+#install.packages("tiff")
+library(tiff)
+library(raster)
+library(ggplot2)
+library(mapview)
+library(here)
+library(randomForest)
+library(datasets)
+library(caret)
+#install.packages("rgdal")
+#library(rgdal)
+library(sp)
+```
+
+
+```{r read in data}
+#read in big raster file
+# Load the multi-band raster file
+multi_band_raster <- stack("Data/Raw Data/classified_maps_w_envi_params.tif")
+
+# Check the raster stack
+print(multi_band_raster)
+
+#view individual bands
+band1 <- multi_band_raster[[1]]
+
+# Plot the first band
+plot(band1, main = "Band 1")
+
+#save band1 as a data frame 
+raster_data1 <- rasterToPoints(band1, spatial = TRUE)
+band1_df <- as.data.frame(raster_data1)
+glimpse(band1_df)
+
+plot(raster_data1)
+
+```
+
+
+```{r pressure, echo=FALSE}
+
+```
+

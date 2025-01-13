@@ -24,6 +24,7 @@ library(sp)
 
 
 ```{r read in data}
+here()
 #read in big raster file
 # Load the multi-band raster file
 multi_band_raster <- stack("Data/Raw Data/classified_maps_w_envi_params.tif")
